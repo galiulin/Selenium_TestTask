@@ -90,15 +90,15 @@ public class YandexMailNavigate implements MailNavigate {
         return mails = filteredMails;
     }
 
-    private boolean checkSender(WebElement mail, String letterSender) {
+    public boolean checkSender(WebElement mail, String letterSender) {
         return mail.findElement(By.cssSelector("span[class*=mail-MessageSnippet-Item_left] span[class=mail-MessageSnippet-FromText]")).getText().equals(letterSender);
     }
 
-    private boolean checkSubject(WebElement mail, String letterSubject) {
+    public boolean checkSubject(WebElement mail, String letterSubject) {
         return mail.findElement(By.cssSelector("span[class*=mail-MessageSnippet-Item_text] span[class$=mail-MessageSnippet-Item_subject]")).getText().equals(letterSubject);
     }
 
-    private boolean checkUnread(WebElement mail, ReadStatus status) {
+    public boolean checkUnread(WebElement mail, ReadStatus status) {
         boolean r = false;
         switch (status) {
             case UNREAD:
